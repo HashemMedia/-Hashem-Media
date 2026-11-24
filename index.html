@@ -4,37 +4,40 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#07090d">
+
 <title>هاشم ميديا | Hashem Media</title>
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Orbitron:wght@500;700;800&display=swap');
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
 
+<style>
 :root {
   --red: #d51e43;
-  --white: #f4f5f7;
+  --bg: #07090d;
 }
 
 * {
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  background: #07090d;
-  color: white;
-  font-family: 'Cairo', Arial, sans-serif;
-  overflow-x: hidden;
+html {
+  scroll-behavior: smooth;
 }
 
-/* الخلفية */
+body {
+  margin: 0;
+  background: var(--bg);
+  color: white;
+  font-family: Cairo, Arial, sans-serif;
+}
+
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -2;
   background: url("background.png") center/cover no-repeat;
-  filter: grayscale(1) contrast(1.12);
+  filter: grayscale(1) brightness(.4);
 }
 
 body::after {
@@ -42,227 +45,245 @@ body::after {
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(
-    90deg,
-    rgba(3,5,9,.86),
-    rgba(3,5,9,.66),
-    rgba(3,5,9,.88)
-  );
+  background: rgba(3,5,10,.65);
 }
 
-/* الهيدر */
 header {
-  height: 94px;
-  padding: 0 7%;
+  min-height: 85px;
+  padding: 15px 7%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(255,255,255,.1);
-  background: rgba(4,7,12,.35);
-  backdrop-filter: blur(14px);
+  border-bottom: 1px solid #ffffff20;
+  background: #07090dcc;
+  backdrop-filter: blur(15px);
 }
 
 .brand {
-  display: flex;
-  align-items: center;
-  gap: 13px;
-  font-size: 20px;
+  font-size: 21px;
   font-weight: 900;
-}
-
-.brand-mark {
-  width: 43px;
-  height: 43px;
-  border: 1px solid var(--red);
-  display: grid;
-  place-items: center;
-  transform: rotate(45deg);
-}
-
-.brand-mark span {
-  transform: rotate(-45deg);
-  color: #ff315b;
-  font-family: Orbitron;
 }
 
 .brand small {
   display: block;
-  direction: ltr;
-  font: 600 9px Orbitron;
-  letter-spacing: 3px;
-  color: #9ca5b2;
-}
-
-.header-tag {
+  color: #aaa;
   font: 10px Orbitron;
-  color: #c4cad3;
-  direction: ltr;
+  letter-spacing: 3px;
 }
 
-/* المحتوى الرئيسي */
-main {
-  min-height: calc(100vh - 94px);
+.brand span {
+  color: var(--red);
+}
+
+nav {
   display: flex;
-  align-items: center;
-  padding: 70px 10% 100px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  padding: 9px 14px;
+  border: 1px solid #ffffff20;
+  transition: .3s;
+}
+
+nav a:hover {
+  background: var(--red);
+}
+
+section {
+  padding: 85px 8%;
 }
 
 .hero {
-  max-width: 760px;
-  animation: rise 1s ease;
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-content {
+  max-width: 750px;
 }
 
 .eyebrow {
-  color: #e5e7eb;
-  font-size: 12px;
-  letter-spacing: 3px;
-  margin-bottom: 22px;
+  color: #ff4165;
+  font-size: 14px;
+  letter-spacing: 2px;
 }
 
 h1 {
-  font-size: clamp(55px, 9vw, 112px);
-  line-height: 1.05;
-  margin: 0;
+  font-size: clamp(48px, 9vw, 100px);
+  line-height: 1.3;
+  margin: 15px 0;
   font-weight: 900;
 }
 
 h1 span {
   display: block;
+  font: 700 .35em Orbitron;
   color: transparent;
-  -webkit-text-stroke: 1.5px white;
-  font-size: .52em;
-  letter-spacing: 5px;
+  -webkit-text-stroke: 1px white;
   direction: ltr;
-  text-align: right;
-  margin-top: 14px;
-  font-family: Orbitron;
 }
 
-.accent-line {
+.line {
   width: 90px;
   height: 4px;
   background: var(--red);
-  margin: 32px 0 22px;
-  box-shadow: 0 0 22px var(--red);
+  margin: 25px 0;
+  box-shadow: 0 0 20px var(--red);
 }
 
 .desc {
-  max-width: 510px;
   color: #c0c6d0;
-  font-size: 16px;
   line-height: 2;
-  margin-bottom: 37px;
+  max-width: 500px;
 }
 
-/* الأزرار */
-.actions {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(190px, 230px));
-  gap: 14px;
+.buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 35px;
 }
 
 .btn {
-  min-height: 62px;
-  padding: 13px 18px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  text-decoration: none;
+  display: inline-block;
+  padding: 14px 25px;
+  background: #ffffff10;
+  border: 1px solid #ffffff30;
   color: white;
-  border: 1px solid rgba(255,255,255,.2);
-  background: rgba(255,255,255,.07);
-  backdrop-filter: blur(12px);
-  font-size: 15px;
+  text-decoration: none;
   font-weight: 800;
   transition: .3s;
 }
 
 .btn:hover {
-  border-color: #ff315b;
+  background: var(--red);
   transform: translateY(-4px);
-  box-shadow: 0 0 25px rgba(213,30,67,.3);
-  background: rgba(213,30,67,.2);
-}
-
-.arrow {
-  color: #ff315b;
-  font: 700 20px Orbitron;
 }
 
 .btn.primary {
-  grid-column: span 2;
-  background: linear-gradient(100deg,#a91032,#d51e43);
-  border-color: #e32b50;
-  max-width: 474px;
+  background: var(--red);
 }
 
-.btn.primary .arrow {
-  color: white;
+.section-title {
+  text-align: center;
+  margin-bottom: 45px;
 }
 
-/* الحقوق */
+.section-title h2 {
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.section-title p {
+  color: #aaa;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 450px));
+  justify-content: center;
+  gap: 25px;
+}
+
+.video-card {
+  background: #11151e;
+  border: 1px solid #ffffff20;
+  padding: 15px;
+  border-radius: 12px;
+  transition: .3s;
+}
+
+.video-card:hover {
+  border-color: var(--red);
+  transform: translateY(-5px);
+}
+
+.video-card h3 {
+  margin: 15px 0 5px;
+  font-size: 18px;
+}
+
+.video-card p {
+  color: #aaa;
+  font-size: 13px;
+}
+
+.telegram-box {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  background: white;
+  min-height: 200px;
+}
+
+.telegram-box iframe {
+  max-width: 100% !important;
+}
+
+.telegram-link {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  color: #ff4165;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.empty {
+  text-align: center;
+  padding: 45px 15px;
+  border: 1px dashed #ffffff40;
+  color: #aaa;
+  border-radius: 10px;
+}
+
 footer {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  padding: 15px 7%;
-  display: flex;
-  justify-content: space-between;
-  border-top: 1px solid rgba(255,255,255,.08);
-  background: rgba(4,6,10,.6);
-  color: #858d99;
-  font-size: 11px;
+  padding: 25px 7%;
+  text-align: center;
+  background: #05070b;
+  border-top: 1px solid #ffffff15;
+  color: #888;
+  font-size: 12px;
 }
 
-/* الحركة */
-@keyframes rise {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+footer span {
+  color: var(--red);
 }
 
-/* الهاتف */
-@media(max-width:620px) {
+@media(max-width:650px) {
   header {
-    height: 78px;
-    padding: 0 20px;
+    flex-direction: column;
+    gap: 15px;
   }
 
-  .brand {
-    font-size: 16px;
+  nav {
+    justify-content: center;
   }
 
-  .header-tag {
-    font-size: 8px;
+  section {
+    padding: 65px 20px;
   }
 
-  main {
-    min-height: calc(100vh - 78px);
-    padding: 55px 25px 105px;
+  .hero {
+    min-height: 70vh;
   }
 
   h1 {
-    font-size: 58px;
+    font-size: 55px;
   }
 
-  .actions {
-    grid-template-columns: 1fr;
+  .buttons {
+    flex-direction: column;
   }
 
-  .btn.primary {
-    grid-column: auto;
-    max-width: none;
-  }
-
-  footer {
-    font-size: 9px;
-    padding: 13px 15px;
+  .btn {
+    text-align: center;
   }
 }
 </style>
@@ -271,22 +292,25 @@ footer {
 <body>
 
 <header>
+
   <div class="brand">
-    <div class="brand-mark"><span>H</span></div>
-
-    <div>
-      هاشم ميديا
-      <small>HASHEM MEDIA</small>
-    </div>
+    هاشم <span>ميديا</span>
+    <small>HASHEM MEDIA</small>
   </div>
 
-  <div class="header-tag">
-    ● OFFICIAL MEDIA PLATFORM
-  </div>
+  <nav>
+    <a href="#home">الرئيسية</a>
+    <a href="#clips">مشاهدة لقطات</a>
+    <a href="#releases">الإصدارات</a>
+  </nav>
+
 </header>
 
-<main>
-  <section class="hero">
+<!-- الصفحة الرئيسية -->
+
+<section class="hero" id="home">
+
+  <div class="hero-content">
 
     <div class="eyebrow">
       قوة الصورة... وهيبة الحضور
@@ -297,41 +321,109 @@ footer {
       <span>HASHEM MEDIA</span>
     </h1>
 
-    <div class="accent-line"></div>
+    <div class="line"></div>
 
     <p class="desc">
-      منصّتكم لمشاهدة اللقطات والإصدارات —
+      منصّتكم لمشاهدة اللقطات والإصدارات.
       محتوى يُعرض بهوية تليق باسمه.
     </p>
 
-    <nav class="actions">
+    <div class="buttons">
 
-      <a class="btn" href="#">
-        <span>مشاهدة لقطات</span>
-        <b class="arrow">←</b>
+      <a class="btn primary" href="#clips">
+        مشاهدة اللقطات ←
       </a>
 
-      <a class="btn" href="#">
-        <span>مشاهدات الإصدارات</span>
-        <b class="arrow">←</b>
+      <a class="btn" href="#releases">
+        مشاهدة الإصدارات ←
       </a>
 
-      <a class="btn primary"
-         href="https://t.me/"
-         target="_blank">
-        <span>للتواصل عبر التيليجرام</span>
-        <b class="arrow">↗</b>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- قسم الفيديوهات -->
+
+<section id="clips">
+
+  <div class="section-title">
+
+    <h2>مشاهدة اللقطات</h2>
+
+    <p>جميع الفيديوهات واللقطات الخاصة بهاشم ميديا</p>
+
+    <div class="line" style="margin:20px auto"></div>
+
+  </div>
+
+  <div class="video-grid">
+
+    <!-- الفيديو الأول -->
+
+    <div class="video-card">
+
+      <div class="telegram-box">
+
+        <blockquote
+          class="telegram-post"
+          data-telegram-post="Sawt_AlHaq0/151"
+          data-width="100%">
+        </blockquote>
+
+      </div>
+
+      <h3>اللقطة الأولى - هاشم ميديا</h3>
+
+      <p>مشاهدة الفيديو عبر تيليجرام</p>
+
+      <a class="telegram-link"
+         href="https://t.me/Sawt_AlHaq0/151"
+         target="_blank"
+         rel="noopener">
+        فتح الفيديو في تيليجرام ↗
       </a>
 
-    </nav>
+    </div>
 
-  </section>
-</main>
+  </div>
+
+</section>
+
+<!-- قسم الإصدارات -->
+
+<section id="releases">
+
+  <div class="section-title">
+
+    <h2>الإصدارات</h2>
+
+    <p>قسم الإصدارات الخاصة بهاشم ميديا</p>
+
+  </div>
+
+  <div class="empty">
+    سيتم إضافة الإصدارات الجديدة قريباً.
+  </div>
+
+</section>
 
 <footer>
-  <span>© هاشم ميديا — جميع الحقوق محفوظة</span>
+
+  © هاشم ميديا — جميع الحقوق محفوظة
+
+  <br><br>
+
   <span>HASHEM MEDIA / OFFICIAL</span>
+
 </footer>
+
+<!-- تحميل مشغل تيليجرام -->
+
+<script async
+src="https://telegram.org/js/telegram-widget.js?22">
+</script>
 
 </body>
 </html>
